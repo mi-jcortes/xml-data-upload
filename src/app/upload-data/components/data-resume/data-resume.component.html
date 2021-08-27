@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-6">
+    <h4>Paso 2</h4>
+  </div>
+  <div class="col-6">
+    <button
+      class="btn btn-outline-primary float-right"
+      (click)="back.emit(true)"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="col-12 mt-4">
+    <h5>Resumen de datos</h5>
+    <h6 class="text-muted">Porfavor revise los datos cargados desde el archivo .xml. Una vez confirmados presione el botón Cargar.</h6>
+  </div>
+  <div class="col-12  mt-4">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">Archivo</th>
+          <td>{{ uploadForm?.value.fileName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">RUT</th>
+          <td>{{ uploadForm?.value.issuerTaxId }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Folio desde</th>
+          <td>{{ uploadForm?.value.rangeFrom }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Folio hasta</th>
+          <td>{{ uploadForm?.value.rangeTo }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fecha autorización</th>
+          <td>{{ uploadForm?.value.authorizationDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-12">
+    <button
+      class="btn btn-primary float-right"
+      (click)="save.emit(true)"
+    >Cargar</button>
+  </div>
+</div>

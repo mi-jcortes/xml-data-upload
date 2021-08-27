@@ -1,0 +1,36 @@
+<div class="row align-items-center justify-content-center vh-100">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body p-4">
+          <ngb-carousel
+            [showNavigationArrows]="false"
+            [showNavigationIndicators]="true"
+            #carousel
+          >
+            <ng-template ngbSlide>
+              <div class="col-12">
+                <app-upload-file
+                  [form]="uploadForm"
+                  (success)="succesFileUpload()"
+                  (next)="carousel.next()"
+                >
+                </app-upload-file>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="row">
+                <div class="col-12">
+                  <app-data-resume
+                    [form]="uploadForm"
+                    (back)="carousel.prev()"
+                    (save)="saveData()"
+                  >
+                  </app-data-resume>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+    </div>
+</div>
