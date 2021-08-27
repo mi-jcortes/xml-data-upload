@@ -19,6 +19,6 @@ export class DataResumeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
 }

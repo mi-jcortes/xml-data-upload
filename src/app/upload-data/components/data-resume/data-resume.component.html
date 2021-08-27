@@ -19,7 +19,7 @@
       <tbody>
         <tr>
           <th scope="row">Archivo</th>
-          <td>{{ uploadForm?.value.fileName }}</td>
+          <td>{{ uploadForm?.value.file.fileName }}</td>
         </tr>
         <tr>
           <th scope="row">RUT</th>
@@ -27,11 +27,11 @@
         </tr>
         <tr>
           <th scope="row">Folio desde</th>
-          <td>{{ uploadForm?.value.rangeFrom }}</td>
+          <td>{{ uploadForm?.value.range.from }}</td>
         </tr>
         <tr>
           <th scope="row">Folio hasta</th>
-          <td>{{ uploadForm?.value.rangeTo }}</td>
+          <td>{{ uploadForm?.value.range.to }}</td>
         </tr>
         <tr>
           <th scope="row">Fecha autorización</th>

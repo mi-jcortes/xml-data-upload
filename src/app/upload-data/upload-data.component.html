@@ -11,7 +11,7 @@
               <div class="col-12">
                 <app-upload-file
                   [form]="uploadForm"
-                  (success)="succesFileUpload()"
+                  (success)="succesFileUpload($event)"
                   (next)="carousel.next()"
                 >
                 </app-upload-file>

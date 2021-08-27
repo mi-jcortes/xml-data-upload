@@ -12,8 +12,11 @@ import { setTimeout } from 'timers';
 })
 export class UploadDataComponent {
 
+  @ViewChild('carousel')
+  carousel!: NgbCarousel;
+
   public uploadForm: FormGroup;
-  @ViewChild('carousel') carousel!: NgbCarousel;
+  private file!: File;
 
   constructor(
     formBuilder: FormBuilder,
@@ -21,12 +24,16 @@ export class UploadDataComponent {
   ) {
     this.uploadForm = formBuilder.group({
       issuerTaxId: [null, Validators.required],
-      rangeFrom: [null, Validators.required],
-      rangeTo: [null, Validators.required],
+      range: formBuilder.group({
+        from: [null, Validators.required],
+        to: [null, Validators.required]
+      }),
       authorizationDate: [null, Validators.required],
-      file: [null, Validators.required],
-      fileName: [null],
-      base64: [null, Validators.required]
+      file: formBuilder.group({
+        mime: [null, Validators.required],
+        fileName: [null],
+        data: [null, Validators.required]
+      }),
     });
   }
 
@@ -34,12 +41,15 @@ export class UploadDataComponent {
     this.carousel.pause();
   }
 
-  succesFileUpload() {
+  succesFileUpload(file: File) {
+    this.file = file;
     this.carousel.next();
   }
 
   saveData() {
     console.info(this.uploadForm.value);
+    console.info(this.file);
     setTimeout(() => this.router.navigate(["/success"]), 1000);
   }
+
 }
